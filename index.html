@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dr. Ayush Sharma — Family Physician, Andheri West</title>
+<meta name="description" content="Dr. Ayush Sharma, MBBS — Trusted family doctor in Lower Oshiwara, Andheri West, Mumbai. Call 9876543210 for appointments."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#0F6E56;--teal-l:#1D9E75;--teal-pale:#E1F5EE;--teal-mid:#5DCAA5;
+  --navy:#0C1B33;--ink:#1A2332;--body:#3D4A5C;--muted:#6B7A8D;
+  --border:#D8E4EC;--bg:#F5FAF8;--white:#fff;
+  --r:12px;--sh:0 2px 20px rgba(15,110,86,.08);--sh-lg:0 8px 40px rgba(15,110,86,.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ 
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.25rem;height:60px;
+}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--teal);font-weight:700;white-space:nowrap}
+.nav-brand span{color:var(--navy)}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--body);transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{
+  background:var(--teal);color:#fff!important;
+  padding:.45rem 1.1rem;border-radius:8px;
+  font-size:.8rem;font-weight:600;transition:background .2s
+}
+.nav-cta:hover{background:var(--teal-l)!important}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--ink)}
+/* mobile nav overlay */
+.nav-drawer{
+  display:none;position:fixed;inset:60px 0 0;
+  background:#fff;z-index:199;padding:2rem 1.5rem;
+  flex-direction:column;gap:0;border-top:1px solid var(--border);
+  overflow-y:auto;
+}
+.nav-drawer.open{display:flex}
+.nav-drawer a{
+  padding:1rem 0;font-size:1.05rem;font-weight:500;color:var(--ink);
+  border-bottom:1px solid var(--border);display:block;transition:color .2s
+}
+.nav-drawer a:last-child{border-bottom:none}
+.nav-drawer a:hover{color:var(--teal)}
+.nav-drawer .cta-mobile{
+  margin-top:1.5rem;background:var(--teal);color:#fff;text-align:center;
+  padding:1rem;border-radius:10px;font-weight:600;font-size:1rem;border:none
+}
+ 
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.8rem 1.75rem;border-radius:10px;
+  font-size:.9rem;font-weight:600;cursor:pointer;
+  transition:all .2s;border:none;font-family:'Inter',sans-serif
+}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.btn-outline{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.btn-outline:hover{background:var(--teal-pale)}
+.btn-full{width:100%;justify-content:center}
+ 
+/* ── HERO ── */
+.hero{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:3rem;
+  padding:3.5rem 2rem 4rem;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--teal-pale);color:var(--teal);
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.35rem .9rem;border-radius:100px;margin-bottom:1.25rem
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.8vw,3.4rem);
+  line-height:1.15;color:var(--navy);
+  margin-bottom:.5rem;letter-spacing:-.02em
+}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero-meta{font-size:.85rem;color:var(--muted);margin-bottom:.4rem;font-weight:400}
+.hero-loc{
+  display:flex;align-items:center;gap:5px;
+  font-size:.82rem;color:var(--body);margin-bottom:1.5rem
+}
+.hero-loc svg{color:var(--teal);flex-shrink:0}
+.hero-desc{font-size:.95rem;color:var(--body);line-height:1.8;margin-bottom:2rem;max-width:440px}
+.hero-actions{display:flex;gap:.85rem;flex-wrap:wrap}
+ 
+/* hero image */
+.hero-img-wrap{position:relative;display:flex;justify-content:center}
+.hero-img-frame{
+  position:relative;border-radius:28px;overflow:hidden;
+  width:100%;max-width:440px;aspect-ratio:4/5;
+  background:var(--teal-pale);
+  box-shadow:var(--sh-lg);
+}
+.hero-img-frame img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hero-pill{
+  position:absolute;bottom:-14px;left:-18px;
+  background:#fff;border-radius:14px;padding:.9rem 1.3rem;
+  box-shadow:var(--sh-lg);border:1px solid var(--border);min-width:170px
+}
+.pill-label{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.pill-val{font-size:1.3rem;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif}
+.pill-sub{font-size:.75rem;color:var(--teal);font-weight:500}
+.hero-badge-float{
+  position:absolute;top:18px;right:-14px;
+  background:#FAEEDA;border:1px solid #F0C870;border-radius:12px;
+  padding:.7rem .9rem;text-align:center;box-shadow:var(--sh)
+}
+.badge-icon{font-size:1.5rem}
+.badge-text{font-size:.65rem;font-weight:700;color:#BA7517;text-transform:uppercase;letter-spacing:.04em;display:block;margin-top:2px}
+ 
+/* ── STATS BAR ── */
+.stats-bar{background:var(--navy);padding:1.75rem 1.25rem}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:.75rem 1rem;border-right:1px solid rgba(255,255,255,.1)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--teal-mid);font-weight:700}
+.stat-lbl{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+ 
+/* ── SECTIONS ── */
+section{padding:4.5rem 1.25rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--navy);line-height:1.2;margin-bottom:1rem;letter-spacing:-.02em}
+.s-lead{font-size:.95rem;color:var(--body);line-height:1.8}
+ 
+/* ── ABOUT ── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-imgs{position:relative;height:420px}
+.ab-main{position:absolute;top:0;left:0;width:70%;height:82%;border-radius:20px;overflow:hidden;box-shadow:var(--sh-lg)}
+.ab-main img{width:100%;height:100%;object-fit:cover}
+.ab-accent{position:absolute;bottom:0;right:0;width:52%;height:52%;border-radius:18px;overflow:hidden;border:4px solid #fff;box-shadow:var(--sh-lg)}
+.ab-accent img{width:100%;height:100%;object-fit:cover}
+.qual-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1.75rem}
+.qual{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:1rem 1.15rem;background:#fff;border-radius:var(--r);
+  border:1px solid var(--border);transition:all .2s
+}
+.qual:hover{box-shadow:var(--sh);transform:translateX(4px)}
+.qual-icon{width:40px;height:40px;background:var(--teal-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.qual-t{font-size:.85rem;font-weight:600;color:var(--navy)}
+.qual-s{font-size:.77rem;color:var(--muted);margin-top:2px}
+ 
+/* ── SERVICES ── */
+#services{background:#fff}
+.svc-header{text-align:center;margin-bottom:3rem}
+.svc-header .s-lead{max-width:540px;margin:0 auto}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.svc-card{
+  background:var(--bg);border-radius:16px;padding:1.75rem 1.5rem;
+  border:1px solid var(--border);transition:all .25s;position:relative;overflow:hidden
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s
+}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--teal-pale)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:48px;height:48px;background:var(--teal-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem}
+.svc-card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.svc-card p{font-size:.8rem;color:var(--body);line-height:1.65}
+ 
+/* ── GALLERY ── */
+#gallery{background:var(--navy);padding:4.5rem 1.25rem}
+.gal-header{text-align:center;margin-bottom:2.5rem}
+.gal-header .eyebrow{color:var(--teal-mid)}
+.gal-header .s-title{color:#fff}
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:200px 200px;
+  gap:12px;max-width:1200px;margin:0 auto
+}
+.gal-item{border-radius:14px;overflow:hidden;position:relative}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item.tall{grid-row:span 2}
+.gal-item.wide{grid-column:span 2}
+.gal-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(15,110,86,.65) 0%,transparent 55%);
+  opacity:0;transition:opacity .3s;
+  display:flex;align-items:flex-end;padding:1rem
+}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-cap{color:#fff;font-size:.75rem;font-weight:500}
+ 
+/* ── REVIEWS ── */
+#reviews{background:var(--bg)}
+.rev-header{text-align:center;margin-bottom:2.75rem}
+.rev-header .s-lead{max-width:500px;margin:0 auto}
+.rev-layout{display:grid;grid-template-columns:360px 1fr;gap:2.5rem;align-items:start}
+ 
+/* form card */
+.rev-form{
+  background:#fff;border-radius:20px;border:1px solid var(--border);
+  padding:1.75rem;box-shadow:var(--sh);position:sticky;top:70px
+}
+.rev-form h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:.25rem}
+.form-sub{font-size:.77rem;color:var(--muted);margin-bottom:1.4rem}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-size:.72rem;font-weight:700;color:var(--body);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.fg input,.fg textarea,.fg select{
+  width:100%;padding:.6rem .85rem;
+  border:1px solid var(--border);border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:.85rem;color:var(--ink);
+  background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(29,158,117,.12)}
+.fg textarea{resize:vertical;min-height:85px}
+.star-row{display:flex;gap:5px;margin-bottom:.9rem}
+.star-btn{font-size:1.55rem;cursor:pointer;color:#D8E4EC;background:none;border:none;padding:0;transition:color .15s,transform .1s;line-height:1}
+.star-btn:hover,.star-btn.lit{color:#F5A623;transform:scale(1.18)}
+.sub-btn{
+  width:100%;padding:.8rem;background:var(--teal);color:#fff;
+  border:none;border-radius:10px;font-size:.9rem;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;margin-top:.25rem
+}
+.sub-btn:hover{background:var(--teal-l);transform:translateY(-1px);box-shadow:0 4px 16px rgba(15,110,86,.25)}
+.sub-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+ 
+/* agg box */
+.agg{
+  background:var(--teal);border-radius:16px;padding:1.4rem 1.75rem;
+  margin-bottom:1.25rem;display:flex;align-items:center;gap:1.5rem
+}
+.agg-score{font-family:'Playfair Display',serif;font-size:2.8rem;color:#fff;font-weight:700;line-height:1}
+.agg-stars{color:#F5A623;font-size:1rem;display:block;margin-bottom:3px}
+.agg-count{font-size:.77rem;color:rgba(255,255,255,.75)}
+ 
+/* review cards */
+.rev-feed{display:flex;flex-direction:column;gap:.9rem}
+.rev-card{
+  background:#fff;border-radius:16px;border:1px solid var(--border);
+  padding:1.35rem;transition:box-shadow .2s;animation:fadeUp .35s ease
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.rev-card:hover{box-shadow:var(--sh)}
+.rev-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem}
+.rev-user{display:flex;align-items:center;gap:10px}
+.av{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:.82rem;color:#fff;flex-shrink:0
+}
+.rev-name{font-size:.875rem;font-weight:600;color:var(--navy)}
+.rev-date{font-size:.7rem;color:var(--muted);margin-top:1px}
+.rev-stars{color:#F5A623;font-size:.82rem;letter-spacing:1px;white-space:nowrap}
+.rev-text{font-size:.845rem;color:var(--body);line-height:1.65}
+.rev-verified{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--teal);font-weight:700;margin-top:.6rem}
+.empty-state{text-align:center;padding:2.5rem;color:var(--muted);font-size:.875rem}
+.empty-icon{font-size:2.2rem;margin-bottom:.6rem;display:block}
+ 
+/* ── CONTACT ── */
+#contact{background:#fff}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.con-details{display:flex;flex-direction:column;gap:1rem;margin-top:1.75rem}
+.con-item{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:1.1rem;background:var(--bg);border-radius:var(--r);border:1px solid var(--border)
+}
+.con-icon{
+  width:42px;height:42px;background:var(--teal);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0
+}
+.con-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.con-val{font-size:.9rem;font-weight:500;color:var(--navy)}
+.con-val a{color:var(--teal)}
+.con-val a:hover{text-decoration:underline}
+.hrs{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.75rem}
+.hr-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.45rem .7rem;border-radius:8px;background:#fff;
+  font-size:.78rem;border:1px solid var(--border)
+}
+.hr-day{color:var(--body);font-weight:500}
+.hr-time{color:var(--teal);font-weight:600}
+.hr-closed .hr-time{color:#E24B4A}
+.map-wrap{border-radius:20px;overflow:hidden;height:360px;border:1px solid var(--border);box-shadow:var(--sh)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+ 
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:2.75rem 1.5rem;text-align:center}
+.ft-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--teal-mid);font-weight:700;margin-bottom:.4rem}
+.ft-sub{font-size:.77rem;color:rgba(255,255,255,.4);margin-bottom:1.25rem}
+.ft-links{display:flex;justify-content:center;gap:1.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.ft-links a{color:rgba(255,255,255,.55);font-size:.78rem;transition:color .2s}
+.ft-links a:hover{color:var(--teal-mid)}
+.ft-copy{font-size:.7rem;color:rgba(255,255,255,.25)}
+ 
+/* ── CALL STRIP (mobile) ── */
+.call-strip{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;
+  background:var(--teal);padding:.85rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.call-strip p{color:rgba(255,255,255,.8);font-size:.78rem}
+.call-strip p strong{color:#fff;font-weight:600}
+.call-strip a{
+  background:#fff;color:var(--teal);
+  padding:.55rem 1.25rem;border-radius:8px;font-weight:700;font-size:.85rem;
+  white-space:nowrap;flex-shrink:0
+}
+ 
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:5rem;right:1.25rem;z-index:999;
+  background:var(--teal);color:#fff;
+  padding:.8rem 1.4rem;border-radius:12px;font-size:.85rem;font-weight:500;
+  box-shadow:var(--sh-lg);transform:translateY(100px);opacity:0;transition:all .3s;
+  max-width:300px
+}
+.toast.show{transform:translateY(0);opacity:1}
+ 
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .rev-layout{grid-template-columns:1fr}
+  .rev-form{position:static}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal-item.tall{grid-row:span 1}
+  .gal-item.wide{grid-column:span 2}
+}
+ 
+@media(max-width:768px){
+  /* nav */
+  .nav-links{display:none}
+  .hamburger{display:block}
+ 
+  /* hero */
+  .hero{
+    grid-template-columns:1fr;padding:2rem 1.25rem 3rem;
+    gap:2rem;text-align:center
+  }
+  .hero-text{order:2}
+  .hero-img-wrap{order:1}
+  .hero-badge{margin:0 auto 1rem}
+  .hero-loc{justify-content:center}
+  .hero-desc{margin:0 auto 1.75rem;text-align:left}
+  .hero-actions{justify-content:center}
+  .hero-img-frame{max-width:300px}
+  .hero-pill{bottom:-10px;left:-10px;padding:.7rem 1rem;min-width:150px}
+  .hero-badge-float{right:-8px;top:12px}
+ 
+  /* stats */
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+ 
+  /* about */
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-imgs{height:260px}
+  .ab-main{width:65%;height:78%}
+  .ab-accent{width:50%;height:50%}
+ 
+  /* services */
+  .svc-grid{grid-template-columns:1fr}
+ 
+  /* gallery */
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal-item.tall,.gal-item.wide{grid-row:span 1;grid-column:span 1}
+  .gal-grid .gal-item{height:160px}
+ 
+  /* reviews */
+  .rev-layout{grid-template-columns:1fr}
+ 
+  /* contact */
+  .con-grid{grid-template-columns:1fr}
+  .hrs{grid-template-columns:1fr}
+  .map-wrap{height:260px}
+ 
+  /* call strip */
+  .call-strip{display:flex}
+ 
+  /* footer */
+  .ft-links{gap:1rem}
+ 
+  /* extra bottom padding so call strip doesn't cover content */
+  footer{padding-bottom:5.5rem}
+  #contact{padding-bottom:5rem}
+ 
+  section{padding:3.5rem 1.25rem}
+}
+ 
+@media(max-width:420px){
+  .hero-actions{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat{border-right:none!important}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)!important}
+  .pill-val{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav role="navigation" aria-label="Site navigation">
+  <a class="nav-brand" href="#"><span>Dr.</span> Ayush Sharma</a>
+  <ul class="nav-links" aria-label="Desktop navigation">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Clinic</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="tel:9876543210" class="nav-cta">📞 Call Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+ 
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Mobile navigation">
+  <a href="#about" class="drawer-link">About</a>
+  <a href="#services" class="drawer-link">Services</a>
+  <a href="#gallery" class="drawer-link">Clinic</a>
+  <a href="#reviews" class="drawer-link">Reviews</a>
+  <a href="#contact" class="drawer-link">Contact</a>
+  <a href="tel:9876543210" class="cta-mobile">📞 Call +91 98765 43210</a>
+</div>
+ 
+<main>
+<!-- ── HERO ── -->
+<section aria-labelledby="hero-h1" style="padding:0">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">MBBS · Family Physician · Andheri West</div>
+      <h1 id="hero-h1">Your family's<br><em>trusted doctor</em><br>in Andheri</h1>
+      <p class="hero-meta">Dr. Ayush Sharma — Family Medicine</p>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Lower Oshiwara, Andheri West, Mumbai
+      </div>
+      <p class="hero-desc">Personalised, comprehensive care for every stage of life. From children to seniors, acute illnesses to chronic conditions — Dr. Sharma has been looking after Andheri families for over a decade.</p>
+      <div class="hero-actions">
+        <a href="tel:9876543210" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="#contact" class="btn btn-outline">Book Appointment</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <img src="doctor.png" alt="Dr. Ayush Sharma — MBBS Family Physician" loading="eager"/>
+      </div>
+      <div class="hero-pill">
+        <div class="pill-label">Experience</div>
+        <div class="pill-val">10+ Yrs</div>
+        <div class="pill-sub">Family Medicine</div>
+      </div>
+      <div class="hero-badge-float">
+        <div class="badge-icon">🏥</div>
+        <span class="badge-text">MBBS</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── STATS ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">5,000+</div><div class="stat-lbl">Patients Treated</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years Experience</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Days a Week</div></div>
+    <div class="stat"><div class="stat-num" id="ratingStat">4.9★</div><div class="stat-lbl">Patient Rating</div></div>
+  </div>
+</div>
+ 
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-imgs" aria-hidden="true">
+        <div class="ab-main">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=80" alt="Modern clinic interior" loading="lazy"/>
+        </div>
+        <div class="ab-accent">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&auto=format&fit=crop&q=80" alt="Doctor consultation" loading="lazy"/>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">About the Doctor</p>
+        <h2 class="s-title">A physician who<br>truly listens</h2>
+        <p class="s-lead" style="margin-bottom:1rem">Dr. Ayush Sharma is a qualified family physician (MBBS) based in Lower Oshiwara, Andheri West. With over a decade of practice, he is known in the neighbourhood for his patient, thorough approach to care — taking time to understand not just symptoms, but the full context of a patient's life.</p>
+        <p class="s-lead">His clinic is a warm, unhurried space where patients of all ages — from newborns to the elderly — feel heard. Whether it's a routine check-up or managing a long-term condition, Dr. Sharma's commitment is to lasting health.</p>
+        <div class="qual-list">
+          <div class="qual">
+            <div class="qual-icon">🎓</div>
+            <div><div class="qual-t">MBBS — Bachelor of Medicine &amp; Surgery</div><div class="qual-s">Qualified General Practitioner</div></div>
+          </div>
+          <div class="qual">
+            <div class="qual-icon">👨‍👩‍👧</div>
+            <div><div class="qual-t">Family Medicine Specialist</div><div class="qual-s">All ages — children, adults &amp; elderly</div></div>
+          </div>
+          <div class="qual">
+            <div class="qual-icon">📍</div>
+            <div><div class="qual-t">Based in Andheri West</div><div class="qual-s">Lower Oshiwara — serving the community since 2014</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-inner">
+    <div class="svc-header">
+      <p class="eyebrow">What We Treat</p>
+      <h2 class="s-title">Comprehensive family care</h2>
+      <p class="s-lead">From everyday illnesses to preventive health and chronic disease management — one trusted doctor for your whole family.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="svc-icon">🤒</div><h3>General Medicine</h3><p>Fevers, infections, cough, cold, body aches — prompt diagnosis and treatment for all common illnesses in adults and children.</p></div>
+      <div class="svc-card"><div class="svc-icon">🩺</div><h3>Health Check-Ups</h3><p>Annual physicals, pre-employment medicals, and comprehensive wellness assessments with lab referrals when needed.</p></div>
+      <div class="svc-card"><div class="svc-icon">💉</div><h3>Vaccinations</h3><p>Complete adult and childhood vaccination schedules. Travel vaccines, flu shots, and Covid boosters available.</p></div>
+      <div class="svc-card"><div class="svc-icon">❤️</div><h3>Chronic Disease Care</h3><p>Ongoing management of diabetes, hypertension, thyroid disorders — with regular monitoring and medication review.</p></div>
+      <div class="svc-card"><div class="svc-icon">👶</div><h3>Paediatric Care</h3><p>Child health consultations, growth monitoring, school medicals, and management of common childhood illnesses.</p></div>
+      <div class="svc-card"><div class="svc-icon">📋</div><h3>Prescriptions &amp; Referrals</h3><p>Medication prescriptions, specialist referrals, medical certificates, and coordination of care across disciplines.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── GALLERY ── -->
+<section id="gallery" style="padding:4.5rem 1.25rem">
+  <div class="gal-header section-inner">
+    <p class="eyebrow">Our Clinic</p>
+    <h2 class="s-title">A calm, welcoming space</h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item tall">
+      <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop&q=80" alt="Clinic reception" loading="lazy"/>
+      <div class="gal-ov"><span class="gal-cap">Welcoming reception</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop&q=80" alt="Consultation room" loading="lazy"/>
+      <div class="gal-ov"><span class="gal-cap">Consultation room</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop&q=80" alt="Medical equipment" loading="lazy"/>
+      <div class="gal-ov"><span class="gal-cap">Modern diagnostics</span></div>
+    </div>
+    <div class="gal-item wide">
+      <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?w=700&auto=format&fit=crop&q=80" alt="Waiting area" loading="lazy"/>
+      <div class="gal-ov"><span class="gal-cap">Comfortable waiting area</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=80" alt="Doctor consultation" loading="lazy"/>
+      <div class="gal-ov"><span class="gal-cap">One-on-one care</span></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── REVIEWS ── -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="rev-header">
+      <p class="eyebrow">Patient Reviews</p>
+      <h2 class="s-title">What patients say</h2>
+      <p class="s-lead">Real experiences from real patients. Share yours below — reviews are saved in your browser and visible instantly.</p>
+    </div>
+    <div class="rev-layout">
+      <!-- FORM -->
+      <div class="rev-form">
+        <h3>Write a Review</h3>
+        <p class="form-sub">Share your experience with Dr. Sharma</p>
+        <div class="fg">
+          <label>Your Rating *</label>
+          <div class="star-row" id="starRow" role="group" aria-label="Select star rating">
+            <button class="star-btn" data-v="1" aria-label="1 star">★</button>
+            <button class="star-btn" data-v="2" aria-label="2 stars">★</button>
+            <button class="star-btn" data-v="3" aria-label="3 stars">★</button>
+            <button class="star-btn" data-v="4" aria-label="4 stars">★</button>
+            <button class="star-btn" data-v="5" aria-label="5 stars">★</button>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="rn">Your Name *</label>
+          <input type="text" id="rn" placeholder="E.g. Priya Mehta" maxlength="60" autocomplete="name"/>
+        </div>
+        <div class="fg">
+          <label for="rv">Reason for Visit</label>
+          <select id="rv">
+            <option value="">Select…</option>
+            <option>General Check-Up</option>
+            <option>Fever / Infection</option>
+            <option>Chronic Condition</option>
+            <option>Vaccination</option>
+            <option>Child Health</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="rt">Your Experience *</label>
+          <textarea id="rt" placeholder="Tell others what it was like visiting the clinic…" maxlength="500"></textarea>
+        </div>
+        <button class="sub-btn" id="subBtn">Post Review</button>
+      </div>
+      <!-- FEED -->
+      <div>
+        <div class="agg">
+          <div class="agg-score" id="aggScore">4.9</div>
+          <div>
+            <span class="agg-stars">★★★★★</span>
+            <div id="aggCount" class="agg-count">Based on patient reviews</div>
+          </div>
+        </div>
+        <div class="rev-feed" id="revFeed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="con-grid">
+      <div>
+        <p class="eyebrow">Contact &amp; Hours</p>
+        <h2 class="s-title">Visit the clinic</h2>
+        <p class="s-lead">Walk-ins welcome. Call ahead to check wait times for faster service.</p>
+        <div class="con-details">
+          <div class="con-item">
+            <div class="con-icon">📞</div>
+            <div><div class="con-label">Phone</div><div class="con-val"><a href="tel:9876543210">+91 98765 43210</a></div></div>
+          </div>
+          <div class="con-item">
+            <div class="con-icon">📍</div>
+            <div><div class="con-label">Address</div><div class="con-val">Lower Oshiwara, Andheri West,<br>Mumbai — 400053</div></div>
+          </div>
+          <div class="con-item">
+            <div class="con-icon">🕐</div>
+            <div>
+              <div class="con-label">Clinic Hours</div>
+              <div class="hrs">
+                <div class="hr-row"><span class="hr-day">Mon – Fri</span><span class="hr-time">9am – 1pm</span></div>
+                <div class="hr-row"><span class="hr-day">Mon – Fri</span><span class="hr-time">5pm – 9pm</span></div>
+                <div class="hr-row"><span class="hr-day">Saturday</span><span class="hr-time">9am – 2pm</span></div>
+                <div class="hr-row hr-closed"><span class="hr-day">Sunday</span><span class="hr-time">Closed</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="tel:9876543210" class="btn btn-primary" style="margin-top:1.75rem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call +91 98765 43210
+        </a>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          title="Clinic location — Lower Oshiwara, Andheri West"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.6!2d72.8268!3d19.1434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7b6dd83bdad%3A0xe8c4bcc96e6c7551!2sOshiwara%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">Dr. Ayush Sharma</div>
+  <p class="ft-sub">MBBS · Family Physician · Andheri West, Mumbai</p>
+  <nav class="ft-links" aria-label="Footer links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:9876543210">+91 98765 43210</a>
+  </nav>
+  <p class="ft-copy">© 2025 Dr. Ayush Sharma Family Clinic · Lower Oshiwara, Andheri West</p>
+</footer>
+ 
+<!-- MOBILE CALL STRIP -->
+<div class="call-strip" aria-label="Quick call bar">
+  <p><strong>Dr. Ayush Sharma</strong><br>Family Clinic · Andheri West</p>
+  <a href="tel:9876543210">📞 Call Now</a>
+</div>
+ 
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+ 
+<script>
+/* ── HAMBURGER ── */
+const ham = document.getElementById('hamburger');
+const drawer = document.getElementById('navDrawer');
+ham.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  ham.setAttribute('aria-expanded', open);
+  ham.innerHTML = open
+    ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+    : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  ham.setAttribute('aria-expanded', false);
+  ham.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+}));
+ 
+/* ── TOAST ── */
+function toast(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color || 'var(--teal)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+ 
+/* ── STARS ── */
+let stars = 0;
+const starBtns = document.querySelectorAll('.star-btn');
+function paintStars(n, hover) {
+  starBtns.forEach(b => {
+    const v = parseInt(b.dataset.v);
+    if (hover !== undefined) b.style.color = v <= hover ? '#F5A623' : '#D8E4EC';
+    else b.style.color = v <= n ? '#F5A623' : '#D8E4EC';
+    b.classList.toggle('lit', v <= (hover !== undefined ? hover : n));
+  });
+}
+starBtns.forEach(b => {
+  b.addEventListener('click', () => { stars = parseInt(b.dataset.v); paintStars(stars); });
+  b.addEventListener('mouseenter', () => paintStars(stars, parseInt(b.dataset.v)));
+  b.addEventListener('mouseleave', () => paintStars(stars));
+});
+ 
+/* ── REVIEW DATA ── */
+const KEY = 'drAyush_reviews_v2';
+const SEED = [
+  { name:'Rahul Desai', stars:5, visit:'General Check-Up', text:'Dr. Sharma is absolutely wonderful. He takes time to listen to every concern and explains everything clearly. My whole family visits him. Highly recommend to anyone in Andheri West.', date:'12 Jun 2025', verified:true },
+  { name:'Sneha Kulkarni', stars:5, visit:'Chronic Condition', text:'Been visiting Dr. Sharma for my diabetes management for 3 years now. He is thorough, patient and genuinely cares. The clinic is clean and wait time is reasonable.', date:'4 May 2025', verified:true },
+  { name:'Arjun Nair', stars:4, visit:'Fever / Infection', text:'Had a bad viral infection and got an appointment the same day. Very professional and gave a clear explanation of the treatment. Highly recommend for anyone in Oshiwara.', date:'28 Mar 2025', verified:false },
+  { name:'Kavita Sharma', stars:5, visit:'Child Health', text:'My daughter has been under Dr. Sharma\'s care since she was born. He is so gentle with kids. Always available on call when we\'re worried. A true family doctor!', date:'10 Feb 2025', verified:true },
+];
+function loadData() {
+  try { const s = localStorage.getItem(KEY); return s ? JSON.parse(s) : [...SEED]; }
+  catch { return [...SEED]; }
+}
+function saveData(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch {} }
+ 
+function initials(n) {
+  return n.trim().split(' ').slice(0,2).map(w=>w[0]?.toUpperCase()).join('');
+}
+function avColor(n) {
+  const p=['#0F6E56','#1D9E75','#0C447C','#3B6D11','#BA7517','#A32D2D','#534AB7'];
+  let h=0; for (let c of n) h=(h*31+c.charCodeAt(0))&0xFFFFFF;
+  return p[h%p.length];
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function starStr(n){ return '★'.repeat(n)+'☆'.repeat(5-n); }
+function todayStr(){ return new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}); }
+ 
+function makeCard(r) {
+  const div = document.createElement('article');
+  div.className = 'rev-card';
+  div.setAttribute('aria-label', `Review by ${r.name}`);
+  div.innerHTML = `
+    <div class="rev-head">
+      <div class="rev-user">
+        <div class="av" style="background:${avColor(r.name)}">${initials(r.name)}</div>
+        <div>
+          <div class="rev-name">${esc(r.name)}</div>
+          <div class="rev-date">${r.visit?esc(r.visit)+' · ':''}${r.date}</div>
+        </div>
+      </div>
+      <div class="rev-stars" aria-label="${r.stars} out of 5 stars">${starStr(r.stars)}</div>
+    </div>
+    <p class="rev-text">${esc(r.text)}</p>
+    ${r.verified?'<div class="rev-verified"><span aria-hidden="true">✓</span> Verified Patient</div>':''}
+  `;
+  return div;
+}
+ 
+function updateAgg(data) {
+  const avg = data.reduce((s,r)=>s+r.stars,0)/data.length;
+  document.getElementById('aggScore').textContent = avg.toFixed(1);
+  document.getElementById('aggCount').textContent = `Based on ${data.length} patient review${data.length!==1?'s':''}`;
+  document.getElementById('ratingStat').textContent = avg.toFixed(1)+'★';
+}
+ 
+function renderFeed(data) {
+  const feed = document.getElementById('revFeed');
+  feed.innerHTML = '';
+  if (!data.length) {
+    feed.innerHTML = '<div class="empty-state"><span class="empty-icon">💬</span><p>No reviews yet. Be the first to share your experience!</p></div>';
+    return;
+  }
+  [...data].reverse().forEach(r => feed.appendChild(makeCard(r)));
+  updateAgg(data);
+}
+ 
+const reviews = loadData();
+renderFeed(reviews);
+ 
+/* ── SUBMIT ── */
+document.getElementById('subBtn').addEventListener('click', () => {
+  const name = document.getElementById('rn').value.trim();
+  const visit = document.getElementById('rv').value;
+  const text = document.getElementById('rt').value.trim();
+  if (!name)       { toast('Please enter your name.','#A32D2D'); return; }
+  if (!stars)      { toast('Please select a star rating.','#A32D2D'); return; }
+  if (text.length < 15) { toast('Please write at least 15 characters.','#A32D2D'); return; }
+  const btn = document.getElementById('subBtn');
+  btn.disabled = true; btn.textContent = 'Posting…';
+  setTimeout(() => {
+    const r = { name, stars, visit, text, date: todayStr(), verified: false };
+    reviews.push(r);
+    saveData(reviews);
+    renderFeed(reviews);
+    document.getElementById('rn').value='';
+    document.getElementById('rv').value='';
+    document.getElementById('rt').value='';
+    stars=0; paintStars(0);
+    btn.disabled=false; btn.textContent='Post Review';
+    toast('✓ Review posted — thank you!');
+    document.getElementById('revFeed').scrollIntoView({behavior:'smooth',block:'start'});
+  }, 500);
+});
+</script>
+</body>
+</html>
